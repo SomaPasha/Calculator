@@ -1,97 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="4"
-        android:orientation="horizontal"
         android:layout_gravity="center"
-        >
+        android:columnCount="4"
+        android:orientation="horizontal">
 
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/special_signs_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="АС"
-            />
+            android:visibility="visible" />
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="+/-"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text=","></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="÷"></Button>
-        <Button android:layout_width="@dimen/button_size"
+
+        <Button
+            android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/number_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="1"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/number_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="2"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/number_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="3"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="*"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/number_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="4"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/number_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="5"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/number_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="6"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="-"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/number_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="7"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/number_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="8"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/number_color"
+            android:insetTop="0"
+            android:insetBottom="0"
             android:text="9"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
-            android:text="+"
             android:layout_rowSpan="2"
             android:layout_gravity="fill"
-            ></Button>
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0"
+            android:insetBottom="0"
+            android:text="+"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
-            android:text="0"
             android:layout_columnSpan="2"
             android:layout_gravity="fill"
-            ></Button>
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/number_color"
+            android:insetTop="0"
+            android:insetBottom="0"
+            android:text="0"></Button>
+
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
-            android:text="="
-            ></Button>
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/special_signs_color"
+            android:insetTop="0"
+            android:insetBottom="0"
+            android:text="="></Button>
 
     </GridLayout>
 
