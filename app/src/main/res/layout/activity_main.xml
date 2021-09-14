@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="center"
-        app:srcCompat="@drawable/background"></androidx.appcompat.widget.AppCompatImageView>
+        app:srcCompat="@drawable/background"/>
 
     <GridLayout
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:backgroundTint="@color/computing_signs_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="+/-"></Button>
+            android:text="+/-"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -43,7 +43,7 @@
             android:backgroundTint="@color/computing_signs_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text=","></Button>
+            android:text=","/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -52,7 +52,7 @@
             android:backgroundTint="@color/computing_signs_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="÷"></Button>
+            android:text="÷"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -61,7 +61,7 @@
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="1"></Button>
+            android:text="1"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -70,7 +70,7 @@
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="2"></Button>
+            android:text="2"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -79,7 +79,7 @@
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="3"></Button>
+            android:text="3"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -88,7 +88,7 @@
             android:backgroundTint="@color/computing_signs_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="*"></Button>
+            android:text="*"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -97,7 +97,7 @@
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="4"></Button>
+            android:text="4"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -106,7 +106,7 @@
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="5"></Button>
+            android:text="5"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -115,7 +115,7 @@
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="6"></Button>
+            android:text="6"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -124,7 +124,7 @@
             android:backgroundTint="@color/computing_signs_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="-"></Button>
+            android:text="-"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -133,7 +133,7 @@
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="7"></Button>
+            android:text="7"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -142,7 +142,7 @@
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="8"></Button>
+            android:text="8"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -151,7 +151,7 @@
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="9"></Button>
+            android:text="9"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -162,7 +162,7 @@
             android:backgroundTint="@color/computing_signs_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="+"></Button>
+            android:text="+"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -173,7 +173,7 @@
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="0"></Button>
+            android:text="0"/>
 
         <Button
             android:layout_width="@dimen/button_size"
@@ -182,7 +182,7 @@
             android:backgroundTint="@color/special_signs_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="="></Button>
+            android:text="="/>
 
     </GridLayout>
 
