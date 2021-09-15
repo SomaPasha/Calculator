@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initButtonOnClickListener() {
         basicEditText = (EditText) findViewById(R.id.basic_edit_text);
-
         Button nullButton = findViewById(R.id.null_button);
         Button deleteButton = findViewById(R.id.delete_button);
         Button pointButton = findViewById(R.id.point_button);
@@ -51,32 +50,38 @@ public class MainActivity extends AppCompatActivity {
             basicEditText.setText("");
         });
         deleteButton.setOnClickListener(v -> {
-            if (basicEditText.length() != 0) {
+            if (basicEditText.length() != 0) { // чтобы при нажатии не вылетала
                 basicEditText.setText(basicEditText.getText().subSequence(0, basicEditText.getText().length() - 1));
             }
         });
         pointButton.setOnClickListener(v -> {
-            if (basicEditText.getText().toString().indexOf(POINT) == -1 && checkSing()) {
+
+            if (basicEditText.length() != 0 && basicEditText.getText().toString().indexOf(POINT) == -1 && checkSing()) {
                 inputNumber(pointButton);
             }
+
         });
         divButton.setOnClickListener(v -> {
-            if (checkSing()) {
+            if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(divButton);
             }
         });
         multiplyButton.setOnClickListener(v -> {
-            if (checkSing()) {
+            if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(multiplyButton);
             }
         });
         plusButton.setOnClickListener(v -> {
-            if (checkSing()) {
+            if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(plusButton);
             }
         });
         minusButton.setOnClickListener(v -> {
-            if (checkSing()) {
+            if (basicEditText.length() != 0) {
+                if (checkSing()) {
+                    inputNumber(minusButton);
+                }
+            } else {
                 inputNumber(minusButton);
             }
         });
@@ -104,6 +109,6 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean checkSing() {
         String endChar = basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length());
-        return !endChar.equals(PLUS) && !endChar.equals(MINUS) && !endChar.equals(MULTIPLY) && !endChar.equals(DIV)&& !endChar.equals(POINT);
+        return !endChar.equals(PLUS) && !endChar.equals(MINUS) && !endChar.equals(MULTIPLY) && !endChar.equals(DIV) && !endChar.equals(POINT);
     }
 }
