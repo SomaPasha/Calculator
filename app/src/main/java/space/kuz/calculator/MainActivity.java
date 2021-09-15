@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-
+    EditText basicEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonOnClickListener() {
-        EditText basicEditText = (EditText) findViewById(R.id.basic_edit_text);
+        basicEditText = (EditText) findViewById(R.id.basic_edit_text);
+
         Button nullButton = findViewById(R.id.null_button);
         Button deleteButton = findViewById(R.id.delete_button);
         Button pointButton = findViewById(R.id.point_button);
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Button eightButton = findViewById(R.id.eight_button);
         Button nineButton = findViewById(R.id.nine_button);
         Button zeroButton = findViewById(R.id.zero_button);
+
         nullButton.setOnClickListener(v -> {
             basicEditText.setText("");
         });
@@ -50,28 +52,32 @@ public class MainActivity extends AppCompatActivity {
         });
         pointButton.setOnClickListener(v -> {
             if (basicEditText.getText().toString().indexOf(",") == -1) {
-                basicEditText.setText(basicEditText.getText().toString() + pointButton.getText());
+                inputNumber(pointButton);
             }
         });
-        divButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + divButton.getText()));
-        multiplyButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + multiplyButton.getText()));
-        plusButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + plusButton.getText()));
-        minusButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + minusButton.getText()));
+        divButton.setOnClickListener(v -> inputNumber(divButton));
+        multiplyButton.setOnClickListener(v -> inputNumber(multiplyButton));
+        plusButton.setOnClickListener(v -> inputNumber(plusButton));
+        minusButton.setOnClickListener(v -> inputNumber(minusButton));
         equalsButton.setOnClickListener(v -> {
         });
-        leftBracketButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + leftBracketButton.getText()));
-        rightBracketButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + rightBracketButton.getText()));
-        oneButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + oneButton.getText()));
-        twoButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + twoButton.getText()));
-        threeButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + threeButton.getText()));
-        fourButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + fourButton.getText()));
-        fiveButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + fiveButton.getText()));
-        sixButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + sixButton.getText()));
-        sevenButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + sevenButton.getText()));
-        eightButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + eightButton.getText()));
-        nineButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + nineButton.getText()));
-        zeroButton.setOnClickListener(v -> basicEditText.setText(basicEditText.getText().toString() + zeroButton.getText()));
+        leftBracketButton.setOnClickListener(v -> inputNumber(leftBracketButton));
+        rightBracketButton.setOnClickListener(v -> inputNumber(rightBracketButton));
+        oneButton.setOnClickListener(v -> inputNumber(oneButton));
+        twoButton.setOnClickListener(v -> inputNumber(twoButton));
+        threeButton.setOnClickListener(v -> inputNumber(threeButton));
+        fourButton.setOnClickListener(v -> inputNumber(fourButton));
+        fiveButton.setOnClickListener(v -> inputNumber(fiveButton));
+        sixButton.setOnClickListener(v -> inputNumber(sixButton));
+        sevenButton.setOnClickListener(v -> inputNumber(sevenButton));
+        eightButton.setOnClickListener(v -> inputNumber(eightButton));
+        nineButton.setOnClickListener(v -> inputNumber(nineButton));
+        zeroButton.setOnClickListener(v -> inputNumber(zeroButton));
 
 
+    }
+
+    private void inputNumber(Button button) {
+        basicEditText.setText(basicEditText.getText().toString() + button.getText());
     }
 }
