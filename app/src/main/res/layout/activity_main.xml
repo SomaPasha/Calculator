@@ -17,6 +17,13 @@
         android:columnCount="4"
         android:orientation="horizontal">
 
+        <EditText
+            android:layout_height="@dimen/button_size"
+            android:layout_width="match_parent"
+            android:layout_columnSpan="4"
+            android:layout_margin="4dp"
+            android:layout_gravity="fill"
+            android:background="@color/number_color" />
         <Button
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
@@ -183,6 +190,28 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="="/>
+
+        <Button
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="("/>
+
+        <Button
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text=")"/>
 
     </GridLayout>
 
