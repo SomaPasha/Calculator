@@ -9,7 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    EditText basicEditText;
+    private EditText basicEditText;
+    private static final String PLUS = "+";
+    private static final String MINUS = "-";
+    private static final String MULTIPLY = "*";
+    private static final String DIV = "÷";
+    private static final String POINT = ",";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +56,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         pointButton.setOnClickListener(v -> {
-            if (basicEditText.getText().toString().indexOf(",") == -1) {
+            if (basicEditText.getText().toString().indexOf(POINT) == -1 && checkSing()) {
                 inputNumber(pointButton);
             }
         });
-        divButton.setOnClickListener(v -> inputNumber(divButton));
-        multiplyButton.setOnClickListener(v -> inputNumber(multiplyButton));
-        plusButton.setOnClickListener(v -> inputNumber(plusButton));
-        minusButton.setOnClickListener(v -> inputNumber(minusButton));
+        divButton.setOnClickListener(v -> {
+            if (checkSing()) {
+                inputNumber(divButton);
+            }
+        });
+        multiplyButton.setOnClickListener(v -> {
+            if (checkSing()) {
+                inputNumber(multiplyButton);
+            }
+        });
+        plusButton.setOnClickListener(v -> {
+            if (checkSing()) {
+                inputNumber(plusButton);
+            }
+        });
+        minusButton.setOnClickListener(v -> {
+            if (checkSing()) {
+                inputNumber(minusButton);
+            }
+        });
         equalsButton.setOnClickListener(v -> {
         });
         leftBracketButton.setOnClickListener(v -> inputNumber(leftBracketButton));
@@ -79,5 +100,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void inputNumber(Button button) {
         basicEditText.setText(basicEditText.getText().toString() + button.getText());
+    }
+
+    private boolean checkSing() {
+        String endChar = basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length());
+        return !endChar.equals(PLUS) && !endChar.equals(MINUS) && !endChar.equals(MULTIPLY) && !endChar.equals(DIV)&& !endChar.equals(POINT);
     }
 }
