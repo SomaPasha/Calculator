@@ -2,11 +2,12 @@ package space.kuz.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private EditText basicEditText;
@@ -14,7 +15,11 @@ public class MainActivity extends AppCompatActivity {
     private static final String MINUS = "-";
     private static final String MULTIPLY = "*";
     private static final String DIV = "÷";
-    private static final String POINT = ",";
+    private static final String POINT = ".";
+    private static final String LEFTSIGN = "(";
+    private static final String RIGHTSING = ")";
+    private static final String NUMBERCHAR = "#";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,33 +54,37 @@ public class MainActivity extends AppCompatActivity {
         nullButton.setOnClickListener(v -> {
             basicEditText.setText("");
         });
+
         deleteButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0) { // чтобы при нажатии не вылетала
                 basicEditText.setText(basicEditText.getText().subSequence(0, basicEditText.getText().length() - 1));
             }
         });
-        pointButton.setOnClickListener(v -> {
 
+        pointButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0 && basicEditText.getText().toString().indexOf(POINT) == -1 && checkSing()) {
                 inputNumber(pointButton);
             }
-
         });
+
         divButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(divButton);
             }
         });
+
         multiplyButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(multiplyButton);
             }
         });
+
         plusButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(plusButton);
             }
         });
+
         minusButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0) {
                 if (checkSing()) {
@@ -85,8 +94,11 @@ public class MainActivity extends AppCompatActivity {
                 inputNumber(minusButton);
             }
         });
+
         equalsButton.setOnClickListener(v -> {
+            convertFormula();
         });
+
         leftBracketButton.setOnClickListener(v -> inputNumber(leftBracketButton));
         rightBracketButton.setOnClickListener(v -> inputNumber(rightBracketButton));
         oneButton.setOnClickListener(v -> inputNumber(oneButton));
@@ -111,4 +123,38 @@ public class MainActivity extends AppCompatActivity {
         String endChar = basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length());
         return !endChar.equals(PLUS) && !endChar.equals(MINUS) && !endChar.equals(MULTIPLY) && !endChar.equals(DIV) && !endChar.equals(POINT);
     }
+
+    private void convertFormula() {
+        boolean checkNumber = false;
+        String Number = "";
+        StringBuilder formulaText = new StringBuilder(basicEditText.getText().toString());
+        ArrayList<String> textSing = new ArrayList();
+        ArrayList<Float> intNumber = new ArrayList();
+        String oneChar;
+        while (formulaText.length() != 0) {
+            oneChar = formulaText.substring(0, 1);
+            formulaText.delete(0, 1);
+            if (oneChar.equals(PLUS) || oneChar.equals(MINUS) || oneChar.equals(MULTIPLY) || oneChar.equals(DIV) || oneChar.equals(LEFTSIGN) || oneChar.equals(RIGHTSING)) {
+                checkNumber = true;
+                if (checkNumber) {
+                    textSing.add(NUMBERCHAR);
+                }
+                textSing.add(oneChar);
+
+            } else {
+                Number = Number + oneChar;
+                if (formulaText.length() == 0) {
+                    checkNumber = true;
+                    textSing.add(NUMBERCHAR);
+                }
+            }
+            if (checkNumber) {
+                intNumber.add(Float.valueOf(Number));
+                checkNumber = false;
+                Number = "";
+            }
+        }
+    }
+
+
 }
