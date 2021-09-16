@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String POINT = ".";
     private static final String LEFTSIGN = "(";
     private static final String RIGHTSING = ")";
-    private static final String NUMBERCHAR = "#";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
         String Number = "";
         StringBuilder formulaText = new StringBuilder(basicEditText.getText().toString());
         ArrayList<String> textSing = new ArrayList();
-        ArrayList<Float> intNumber = new ArrayList();
         String oneChar;
         while (formulaText.length() != 0) {
             oneChar = formulaText.substring(0, 1);
@@ -137,22 +134,22 @@ public class MainActivity extends AppCompatActivity {
             if (oneChar.equals(PLUS) || oneChar.equals(MINUS) || oneChar.equals(MULTIPLY) || oneChar.equals(DIV) || oneChar.equals(LEFTSIGN) || oneChar.equals(RIGHTSING)) {
                 checkNumber = true;
                 if (checkNumber) {
-                    textSing.add(NUMBERCHAR);
+                    textSing.add(Number);
+                    checkNumber = false;
+                    Number = "";
                 }
                 textSing.add(oneChar);
 
             } else {
                 Number = Number + oneChar;
                 if (formulaText.length() == 0) {
-                    checkNumber = true;
-                    textSing.add(NUMBERCHAR);
+                    textSing.add(Number);
                 }
             }
-            if (checkNumber) {
-                intNumber.add(Float.valueOf(Number));
-                checkNumber = false;
-                Number = "";
-            }
+        }
+        for (String s:textSing
+             ) {
+            Toast.makeText(this, ""+s, Toast.LENGTH_SHORT).show();
         }
     }
 
