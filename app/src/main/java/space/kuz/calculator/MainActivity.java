@@ -99,7 +99,12 @@ public class MainActivity extends AppCompatActivity {
 
         equalsButton.setOnClickListener(v -> {
             convertFormula();
-            calculateFormulaHard();
+            try {
+                calculateFormulaHard();
+            } catch (Exception e){
+                Toast.makeText(this,"ОШИБКА!!! Введите заново",Toast.LENGTH_LONG).show();
+            }
+
         });
 
         leftBracketButton.setOnClickListener(v -> inputNumber(leftBracketButton));
