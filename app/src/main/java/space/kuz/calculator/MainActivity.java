@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> subTextSing; // Часть основной формулы (что находться в скобочках)
     private EditText basicEditText;
     private Float result; // хранитель результата
-    private  boolean checkPoint=true;  // флаг для правильного набора дробных чисел
+    private boolean checkPoint = true;  // флаг для правильного набора дробных чисел
     private static final String PLUS = "+";
     private static final String MINUS = "-";
     private static final String MULTIPLY = "*";
@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
 
         nullButton.setOnClickListener(v -> {
             basicEditText.setText(EMPTY);
-            checkPoint=true;
+            checkPoint = true;
         });
 
         deleteButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0) { // чтобы при нажатии не вылетала
-              if(  basicEditText.getText().subSequence(basicEditText.getText().length()-1, basicEditText.getText().length()).toString().equals(POINT)){
-                    checkPoint=true;
+                if (basicEditText.getText().subSequence(basicEditText.getText().length() - 1, basicEditText.getText().length()).toString().equals(POINT)) {
+                    checkPoint = true;
                 }
                 basicEditText.setText(basicEditText.getText().subSequence(0, basicEditText.getText().length() - 1));
             }
@@ -72,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
 
         pointButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0 && checkPoint && checkSing()
-            &&  !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(LEFTSIGN)
-            && !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(RIGHTSING)
+                    && !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(LEFTSIGN)
+                    && !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(RIGHTSING)
             ) {
                 inputNumber(pointButton);
-                checkPoint=false;
+                checkPoint = false;
             }
         });
 
@@ -84,21 +84,21 @@ public class MainActivity extends AppCompatActivity {
             if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(divButton);
             }
-            checkPoint=true;
+            checkPoint = true;
         });
 
         multiplyButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(multiplyButton);
             }
-            checkPoint=true;
+            checkPoint = true;
         });
 
         plusButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(plusButton);
             }
-            checkPoint=true;
+            checkPoint = true;
         });
 
         minusButton.setOnClickListener(v -> {
@@ -109,34 +109,36 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 inputNumber(minusButton);
             }
-            checkPoint=true;
+            checkPoint = true;
         });
 
         equalsButton.setOnClickListener(v -> {
             convertFormula();
             try {
                 calculateFormulaHard();
-            } catch (Exception e){
-                Toast.makeText(this,"ОШИБКА!!! Введите заново",Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                Toast.makeText(this, "ОШИБКА!!! Введите заново", Toast.LENGTH_LONG).show();
             }
-            checkPoint=true;
+            checkPoint = true;
         });
 
         leftBracketButton.setOnClickListener(v -> {
-                if(basicEditText.length() == 0){
-                    inputNumber(leftBracketButton);
-                } else if ( !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(POINT)) {
+            if (basicEditText.length() == 0) {
+                inputNumber(leftBracketButton);
+            } else if (
+                    !isNumber(basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length())) &&
+                            !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(POINT)) {
                 inputNumber(leftBracketButton);
             }
-            checkPoint=true;
+            checkPoint = true;
         });
-        rightBracketButton.setOnClickListener(v ->{
-            if(basicEditText.length() == 0){
+        rightBracketButton.setOnClickListener(v -> {
+            if (basicEditText.length() == 0) {
                 inputNumber(rightBracketButton);
-            } else if ( !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(POINT)) {
+            } else if (!basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(POINT)) {
                 inputNumber(rightBracketButton);
             }
-            checkPoint=true;
+            checkPoint = true;
         });
         oneButton.setOnClickListener(v -> inputNumber(oneButton));
         twoButton.setOnClickListener(v -> inputNumber(twoButton));
@@ -189,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculateFormulaHard() {
-        while (textSing.size()!=1) {
+        while (textSing.size() != 1) {
             if (textSing.indexOf(RIGHTSING) == -1 && textSing.indexOf(LEFTSIGN) == -1) {
                 calculateFormulaSimple(textSing);
             } else {
@@ -215,28 +217,28 @@ public class MainActivity extends AppCompatActivity {
         // Условие для проверки если "-" в самом начале
         checkFirstMinus(subTextSing);
         // Операции в формуле
-                oneOperation(MULTIPLY,subTextSing);
-                oneOperation(DIV,subTextSing);
-                oneOperation(MINUS,subTextSing);
-                oneOperation(PLUS,subTextSing);
+        oneOperation(MULTIPLY, subTextSing);
+        oneOperation(DIV, subTextSing);
+        oneOperation(MINUS, subTextSing);
+        oneOperation(PLUS, subTextSing);
         // Вывод результата
         return subTextSing.get(0);
     }
 
     private void oneOperation(String sing, ArrayList<String> subTextSing) {
         int indexCalculate = subTextSing.indexOf(sing);
-        while (indexCalculate != -1 && subTextSing.size()>1) {
-            switch (sing){
-                case(MULTIPLY):
+        while (indexCalculate != -1 && subTextSing.size() > 1) {
+            switch (sing) {
+                case (MULTIPLY):
                     result = Float.valueOf(subTextSing.get(indexCalculate - 1)) * Float.valueOf(subTextSing.get(indexCalculate + 1));
                     break;
-                case(DIV):
+                case (DIV):
                     result = Float.valueOf(subTextSing.get(indexCalculate - 1)) / Float.valueOf(subTextSing.get(indexCalculate + 1));
                     break;
-                case(MINUS):
+                case (MINUS):
                     result = Float.valueOf(subTextSing.get(indexCalculate - 1)) - Float.valueOf(subTextSing.get(indexCalculate + 1));
                     break;
-                case(PLUS):
+                case (PLUS):
                     result = Float.valueOf(subTextSing.get(indexCalculate - 1)) + Float.valueOf(subTextSing.get(indexCalculate + 1));
                     break;
             }
@@ -247,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void writeEditText(){
+    private void writeEditText() {
         basicEditText.setText(EMPTY);
         for (String s : textSing
         ) {
@@ -255,10 +257,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void checkFirstMinus(ArrayList<String> subTextSing){
-        if(subTextSing.get(0).equals(MINUS)) {
-            subTextSing.set(1, String.valueOf(Float.valueOf(subTextSing.get(1))*-1));
+    private void checkFirstMinus(ArrayList<String> subTextSing) {
+        if (subTextSing.get(0).equals(MINUS)) {
+            subTextSing.set(1, String.valueOf(Float.valueOf(subTextSing.get(1)) * -1));
             subTextSing.remove(0);
+        }
+    }
+
+    private static boolean isNumber(String string) {
+        try {
+            Float.parseFloat(string);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 
