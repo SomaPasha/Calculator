@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> textSing;
+    ArrayList<String> subTextSing;
     private EditText basicEditText;
     private Float result;
     private int indexCalculate =0;
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         equalsButton.setOnClickListener(v -> {
             convertFormula();
-            calculateFormulaSimple();
+            calculateFormulaHard();
         });
 
         leftBracketButton.setOnClickListener(v -> inputNumber(leftBracketButton));
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 
 
@@ -155,45 +157,78 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void calculateFormulaSimple() {
-        // Условие для проверки если "-" в самом начале
-        if(textSing.get(0).equals(MINUS)) {
-            textSing.set(1, String.valueOf(Float.valueOf(textSing.get(1))*-1));
-            textSing.remove(0);
+    private void calculateFormulaHard() {
+        while (textSing.size()!=1) {
+            if (textSing.indexOf(RIGHTSING) == -1 && textSing.indexOf(LEFTSIGN) == -1) {
+                calculateFormulaSimple(textSing);
+            } else {
+
+                subTextSing = new ArrayList<>();
+                int endLeftSing = textSing.lastIndexOf(LEFTSIGN);
+                int k = endLeftSing + 1;
+                while (!textSing.get(k).equals(RIGHTSING)) {
+                    subTextSing.add(textSing.get(k));
+                    k++;
+                }
+                while (!textSing.get(endLeftSing).equals(RIGHTSING)) {
+                    textSing.remove(endLeftSing);
+                }
+                textSing.set(endLeftSing, calculateFormulaSimple(subTextSing));
+
+            }
         }
-        // Операции в формуле
-                oneOperation(MULTIPLY);
-                oneOperation(DIV);
-                oneOperation(MINUS);
-                oneOperation(PLUS);
-        // Вывод результата
-        basicEditText.setText(textSing.get(0));
+        writeEditText();
     }
 
-    private void oneOperation(String sing) {
-        indexCalculate = textSing.indexOf(sing);
-        while (indexCalculate != -1 && textSing.size()>1) {
+    private String calculateFormulaSimple(ArrayList<String> subTextSing) {
+        // Условие для проверки если "-" в самом начале
+        checkFirstMinus(subTextSing);
+        // Операции в формуле
+                oneOperation(MULTIPLY,subTextSing);
+                oneOperation(DIV,subTextSing);
+                oneOperation(MINUS,subTextSing);
+                oneOperation(PLUS,subTextSing);
+        // Вывод результата
+        return subTextSing.get(0);
+    }
+
+    private void oneOperation(String sing, ArrayList<String> subTextSing) {
+        indexCalculate = subTextSing.indexOf(sing);
+        while (indexCalculate != -1 && subTextSing.size()>1) {
             switch (sing){
                 case(MULTIPLY):
-                    result = Float.valueOf(textSing.get(indexCalculate - 1)) * Float.valueOf(textSing.get(indexCalculate + 1));
+                    result = Float.valueOf(subTextSing.get(indexCalculate - 1)) * Float.valueOf(subTextSing.get(indexCalculate + 1));
                     break;
                 case(DIV):
-                    result = Float.valueOf(textSing.get(indexCalculate - 1)) / Float.valueOf(textSing.get(indexCalculate + 1));
+                    result = Float.valueOf(subTextSing.get(indexCalculate - 1)) / Float.valueOf(subTextSing.get(indexCalculate + 1));
                     break;
                 case(MINUS):
-                    result = Float.valueOf(textSing.get(indexCalculate - 1)) - Float.valueOf(textSing.get(indexCalculate + 1));
+                    result = Float.valueOf(subTextSing.get(indexCalculate - 1)) - Float.valueOf(subTextSing.get(indexCalculate + 1));
                     break;
                 case(PLUS):
-                    result = Float.valueOf(textSing.get(indexCalculate - 1)) + Float.valueOf(textSing.get(indexCalculate + 1));
+                    result = Float.valueOf(subTextSing.get(indexCalculate - 1)) + Float.valueOf(subTextSing.get(indexCalculate + 1));
                     break;
             }
-            textSing.set(indexCalculate, result + "");
-            textSing.remove(indexCalculate + 1);
-            textSing.remove(indexCalculate - 1);
-            indexCalculate = textSing.indexOf(sing);
+            subTextSing.set(indexCalculate, result + "");
+            subTextSing.remove(indexCalculate + 1);
+            subTextSing.remove(indexCalculate - 1);
+            indexCalculate = subTextSing.indexOf(sing);
         }
     }
 
+    private void writeEditText(){
+        basicEditText.setText("");
+        for (String s : textSing
+        ) {
+            basicEditText.setText(basicEditText.getText() + s);
+        }
+    }
 
+    private void checkFirstMinus(ArrayList<String> subTextSing){
+        if(subTextSing.get(0).equals(MINUS)) {
+            subTextSing.set(1, String.valueOf(Float.valueOf(subTextSing.get(1))*-1));
+            subTextSing.remove(0);
+        }
+    }
 
 }
