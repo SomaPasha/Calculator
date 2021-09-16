@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initButtonOnClickListener();
     }
-
+    // Иницилизация всех кнопок и обработка их
     private void initButtonOnClickListener() {
         basicEditText = (EditText) findViewById(R.id.basic_edit_text);
         basicEditText.setText(EMPTY);
@@ -153,16 +153,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    // Метод ввода значения в Edit
     private void inputNumber(Button button) {
         basicEditText.setText(basicEditText.getText().toString() + button.getText());
     }
-
+    // Метод проверки находиться рядом + - / * .
     private boolean checkSing() {
         String endChar = basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length());
         return !endChar.equals(PLUS) && !endChar.equals(MINUS) && !endChar.equals(MULTIPLY) && !endChar.equals(DIV) && !endChar.equals(POINT);
     }
-
+    // Первод строки в колекцию для удобного вычисления
     private void convertFormula() {
         boolean checkNumber = false;
         String Number = "";
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+    // Метод вычесления сложных формул со скобками
     private void calculateFormulaHard() {
         while (textSing.size() != 1) {
             if (textSing.indexOf(RIGHTSING) == -1 && textSing.indexOf(LEFTSIGN) == -1) {
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         }
         writeEditText();
     }
-
+    // Метод для вычесления простых формул (внутри скобки без скобок)
     private String calculateFormulaSimple(ArrayList<String> subTextSing) {
         // Условие для проверки если "-" в самом начале
         checkFirstMinus(subTextSing);
@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
         // Вывод результата
         return subTextSing.get(0);
     }
-
+    // Вычесляет элементарную операцию -*+/
     private void oneOperation(String sing, ArrayList<String> subTextSing) {
         int indexCalculate = subTextSing.indexOf(sing);
         while (indexCalculate != -1 && subTextSing.size() > 1) {
@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
             indexCalculate = subTextSing.indexOf(sing);
         }
     }
-
+    // Запить в EditText
     private void writeEditText() {
         basicEditText.setText(EMPTY);
         for (String s : textSing
@@ -256,14 +256,14 @@ public class MainActivity extends AppCompatActivity {
             basicEditText.setText(basicEditText.getText() + s);
         }
     }
-
+    // Проверка наличия первого минуса в строке
     private void checkFirstMinus(ArrayList<String> subTextSing) {
         if (subTextSing.get(0).equals(MINUS)) {
             subTextSing.set(1, String.valueOf(Float.valueOf(subTextSing.get(1)) * -1));
             subTextSing.remove(0);
         }
     }
-
+    // Проверка является строка числом
     private static boolean isNumber(String string) {
         try {
             Float.parseFloat(string);
