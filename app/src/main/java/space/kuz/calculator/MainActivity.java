@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> textSing;
     private EditText basicEditText;
+    private Float result;
+    private int indexCalculate =0;
     private static final String PLUS = "+";
     private static final String MINUS = "-";
     private static final String MULTIPLY = "*";
@@ -96,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         equalsButton.setOnClickListener(v -> {
             convertFormula();
+            calculateFormulaSimple();
         });
 
         leftBracketButton.setOnClickListener(v -> inputNumber(leftBracketButton));
@@ -113,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
     private void inputNumber(Button button) {
         basicEditText.setText(basicEditText.getText().toString() + button.getText());
@@ -134,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             formulaText.delete(0, 1);
             if (oneChar.equals(PLUS) || oneChar.equals(MINUS) || oneChar.equals(MULTIPLY) || oneChar.equals(DIV) || oneChar.equals(LEFTSIGN) || oneChar.equals(RIGHTSING)) {
                 checkNumber = true;
-                if (checkNumber) {
+                if (checkNumber && !Number.equals("")) {
                     textSing.add(Number);
                     checkNumber = false;
                     Number = "";
@@ -149,6 +154,46 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void calculateFormulaSimple() {
+        // Условие для проверки если "-" в самом начале
+        if(textSing.get(0).equals(MINUS)) {
+            textSing.set(1, String.valueOf(Float.valueOf(textSing.get(1))*-1));
+            textSing.remove(0);
+        }
+        // Операции в формуле
+                oneOperation(MULTIPLY);
+                oneOperation(DIV);
+                oneOperation(MINUS);
+                oneOperation(PLUS);
+        // Вывод результата
+        basicEditText.setText(textSing.get(0));
+    }
+
+    private void oneOperation(String sing) {
+        indexCalculate = textSing.indexOf(sing);
+        while (indexCalculate != -1 && textSing.size()>1) {
+            switch (sing){
+                case(MULTIPLY):
+                    result = Float.valueOf(textSing.get(indexCalculate - 1)) * Float.valueOf(textSing.get(indexCalculate + 1));
+                    break;
+                case(DIV):
+                    result = Float.valueOf(textSing.get(indexCalculate - 1)) / Float.valueOf(textSing.get(indexCalculate + 1));
+                    break;
+                case(MINUS):
+                    result = Float.valueOf(textSing.get(indexCalculate - 1)) - Float.valueOf(textSing.get(indexCalculate + 1));
+                    break;
+                case(PLUS):
+                    result = Float.valueOf(textSing.get(indexCalculate - 1)) + Float.valueOf(textSing.get(indexCalculate + 1));
+                    break;
+            }
+            textSing.set(indexCalculate, result + "");
+            textSing.remove(indexCalculate + 1);
+            textSing.remove(indexCalculate - 1);
+            indexCalculate = textSing.indexOf(sing);
+        }
+    }
+
 
 
 }
