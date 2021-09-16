@@ -10,12 +10,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<String> textSing;
-    ArrayList<String> subTextSing;
+    ArrayList<String> textSing;     // Основная фармула
+    ArrayList<String> subTextSing; // Часть основной формулы (что находться в скобочках)
     private EditText basicEditText;
-    private Float result;
-    private  boolean checkPoint=true;
-    private int indexCalculate =0;
+    private Float result; // хранитель результата
+    private  boolean checkPoint=true;  // флаг для правильного набора дробных чисел
     private static final String PLUS = "+";
     private static final String MINUS = "-";
     private static final String MULTIPLY = "*";
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String POINT = ".";
     private static final String LEFTSIGN = "(";
     private static final String RIGHTSING = ")";
+    private static final String EMPTY = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initButtonOnClickListener() {
         basicEditText = (EditText) findViewById(R.id.basic_edit_text);
-        basicEditText.setText("");
+        basicEditText.setText(EMPTY);
         Button nullButton = findViewById(R.id.null_button);
         Button deleteButton = findViewById(R.id.delete_button);
         Button pointButton = findViewById(R.id.point_button);
@@ -56,14 +56,12 @@ public class MainActivity extends AppCompatActivity {
         Button zeroButton = findViewById(R.id.zero_button);
 
         nullButton.setOnClickListener(v -> {
-            basicEditText.setText("");
+            basicEditText.setText(EMPTY);
             checkPoint=true;
         });
 
         deleteButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0) { // чтобы при нажатии не вылетала
-                Toast.makeText(this, basicEditText.getText().subSequence(basicEditText.getText().length()-1, basicEditText.getText().length()), Toast.LENGTH_SHORT).show();
-
               if(  basicEditText.getText().subSequence(basicEditText.getText().length()-1, basicEditText.getText().length()).toString().equals(POINT)){
                     checkPoint=true;
                 }
@@ -154,8 +152,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     private void inputNumber(Button button) {
         basicEditText.setText(basicEditText.getText().toString() + button.getText());
     }
@@ -176,10 +172,10 @@ public class MainActivity extends AppCompatActivity {
             formulaText.delete(0, 1);
             if (oneChar.equals(PLUS) || oneChar.equals(MINUS) || oneChar.equals(MULTIPLY) || oneChar.equals(DIV) || oneChar.equals(LEFTSIGN) || oneChar.equals(RIGHTSING)) {
                 checkNumber = true;
-                if (checkNumber && !Number.equals("")) {
+                if (checkNumber && !Number.equals(EMPTY)) {
                     textSing.add(Number);
                     checkNumber = false;
-                    Number = "";
+                    Number = EMPTY;
                 }
                 textSing.add(oneChar);
 
@@ -228,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void oneOperation(String sing, ArrayList<String> subTextSing) {
-        indexCalculate = subTextSing.indexOf(sing);
+        int indexCalculate = subTextSing.indexOf(sing);
         while (indexCalculate != -1 && subTextSing.size()>1) {
             switch (sing){
                 case(MULTIPLY):
@@ -244,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
                     result = Float.valueOf(subTextSing.get(indexCalculate - 1)) + Float.valueOf(subTextSing.get(indexCalculate + 1));
                     break;
             }
-            subTextSing.set(indexCalculate, result + "");
+            subTextSing.set(indexCalculate, result + EMPTY);
             subTextSing.remove(indexCalculate + 1);
             subTextSing.remove(indexCalculate - 1);
             indexCalculate = subTextSing.indexOf(sing);
@@ -252,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void writeEditText(){
-        basicEditText.setText("");
+        basicEditText.setText(EMPTY);
         for (String s : textSing
         ) {
             basicEditText.setText(basicEditText.getText() + s);
