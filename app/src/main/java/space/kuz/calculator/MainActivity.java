@@ -3,6 +3,9 @@ package space.kuz.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private void initButtonOnClickListener() {
         basicEditText = (EditText) findViewById(R.id.basic_edit_text);
         basicEditText.setText(EMPTY);
+        basicEditText.setMovementMethod( new ScrollingMovementMethod());
         Button nullButton = findViewById(R.id.null_button);
         Button deleteButton = findViewById(R.id.delete_button);
         Button pointButton = findViewById(R.id.point_button);
@@ -272,5 +276,6 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     }
+    // Метод уменьшения шрифта
 
 }

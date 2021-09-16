@@ -16,8 +16,7 @@
         android:layout_gravity="center"
         android:columnCount="4"
         android:orientation="horizontal">
-
-        <EditText
+        <space.kuz.calculator.NoImeEditText
             android:id="@+id/basic_edit_text"
             android:layout_height="@dimen/button_size"
             android:layout_width="match_parent"
@@ -26,9 +25,10 @@
             android:textSize="@dimen/basic_edit_text"
             android:layout_columnSpan="4"
             android:layout_margin="4dp"
-            android:enabled="false"
             android:layout_gravity="fill"
-            android:background="@color/number_color" />
+            android:background="@color/number_color"
+            android:scrollbars="vertical"
+            />
         <Button
             android:id="@+id/null_button"
             android:layout_width="@dimen/button_size"
