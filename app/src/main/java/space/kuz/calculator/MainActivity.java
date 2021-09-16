@@ -10,6 +10,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    ArrayList<String> textSing;
     private EditText basicEditText;
     private static final String PLUS = "+";
     private static final String MINUS = "-";
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         boolean checkNumber = false;
         String Number = "";
         StringBuilder formulaText = new StringBuilder(basicEditText.getText().toString());
-        ArrayList<String> textSing = new ArrayList();
+        textSing = new ArrayList();
         String oneChar;
         while (formulaText.length() != 0) {
             oneChar = formulaText.substring(0, 1);
@@ -146,10 +147,6 @@ public class MainActivity extends AppCompatActivity {
                     textSing.add(Number);
                 }
             }
-        }
-        for (String s:textSing
-             ) {
-            Toast.makeText(this, ""+s, Toast.LENGTH_SHORT).show();
         }
     }
 
