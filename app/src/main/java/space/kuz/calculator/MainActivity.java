@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> subTextSing;
     private EditText basicEditText;
     private Float result;
+    private  boolean checkPoint=true;
     private int indexCalculate =0;
     private static final String PLUS = "+";
     private static final String MINUS = "-";
@@ -56,20 +57,28 @@ public class MainActivity extends AppCompatActivity {
 
         nullButton.setOnClickListener(v -> {
             basicEditText.setText("");
+            checkPoint=true;
         });
 
         deleteButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0) { // чтобы при нажатии не вылетала
+                Toast.makeText(this, basicEditText.getText().subSequence(basicEditText.getText().length()-1, basicEditText.getText().length()), Toast.LENGTH_SHORT).show();
+
+              if(  basicEditText.getText().subSequence(basicEditText.getText().length()-1, basicEditText.getText().length()).toString().equals(POINT)){
+                    checkPoint=true;
+                }
                 basicEditText.setText(basicEditText.getText().subSequence(0, basicEditText.getText().length() - 1));
             }
+
         });
 
         pointButton.setOnClickListener(v -> {
-            if (basicEditText.length() != 0 && basicEditText.getText().toString().indexOf(POINT) == -1 && checkSing()
+            if (basicEditText.length() != 0 && checkPoint && checkSing()
             &&  !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(LEFTSIGN)
             && !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(RIGHTSING)
             ) {
                 inputNumber(pointButton);
+                checkPoint=false;
             }
         });
 
@@ -77,18 +86,21 @@ public class MainActivity extends AppCompatActivity {
             if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(divButton);
             }
+            checkPoint=true;
         });
 
         multiplyButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(multiplyButton);
             }
+            checkPoint=true;
         });
 
         plusButton.setOnClickListener(v -> {
             if (basicEditText.length() != 0 && checkSing()) {
                 inputNumber(plusButton);
             }
+            checkPoint=true;
         });
 
         minusButton.setOnClickListener(v -> {
@@ -99,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 inputNumber(minusButton);
             }
+            checkPoint=true;
         });
 
         equalsButton.setOnClickListener(v -> {
@@ -108,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e){
                 Toast.makeText(this,"ОШИБКА!!! Введите заново",Toast.LENGTH_LONG).show();
             }
-
+            checkPoint=true;
         });
 
         leftBracketButton.setOnClickListener(v -> {
@@ -117,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if ( !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(POINT)) {
                 inputNumber(leftBracketButton);
             }
+            checkPoint=true;
         });
         rightBracketButton.setOnClickListener(v ->{
             if(basicEditText.length() == 0){
@@ -124,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
             } else if ( !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(POINT)) {
                 inputNumber(rightBracketButton);
             }
+            checkPoint=true;
         });
         oneButton.setOnClickListener(v -> inputNumber(oneButton));
         twoButton.setOnClickListener(v -> inputNumber(twoButton));
@@ -138,6 +153,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
     private void inputNumber(Button button) {
         basicEditText.setText(basicEditText.getText().toString() + button.getText());
