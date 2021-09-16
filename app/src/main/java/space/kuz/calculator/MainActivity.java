@@ -123,9 +123,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-
     private void inputNumber(Button button) {
         basicEditText.setText(basicEditText.getText().toString() + button.getText());
     }
