@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initButtonOnClickListener() {
         basicEditText = (EditText) findViewById(R.id.basic_edit_text);
+        basicEditText.setText("");
         Button nullButton = findViewById(R.id.null_button);
         Button deleteButton = findViewById(R.id.delete_button);
         Button pointButton = findViewById(R.id.point_button);
@@ -64,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         pointButton.setOnClickListener(v -> {
-            if (basicEditText.length() != 0 && basicEditText.getText().toString().indexOf(POINT) == -1 && checkSing()) {
+            if (basicEditText.length() != 0 && basicEditText.getText().toString().indexOf(POINT) == -1 && checkSing()
+            &&  !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(LEFTSIGN)
+            && !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(RIGHTSING)
+            ) {
                 inputNumber(pointButton);
             }
         });
@@ -107,8 +111,20 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        leftBracketButton.setOnClickListener(v -> inputNumber(leftBracketButton));
-        rightBracketButton.setOnClickListener(v -> inputNumber(rightBracketButton));
+        leftBracketButton.setOnClickListener(v -> {
+                if(basicEditText.length() == 0){
+                    inputNumber(leftBracketButton);
+                } else if ( !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(POINT)) {
+                inputNumber(leftBracketButton);
+            }
+        });
+        rightBracketButton.setOnClickListener(v ->{
+            if(basicEditText.length() == 0){
+                inputNumber(rightBracketButton);
+            } else if ( !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(POINT)) {
+                inputNumber(rightBracketButton);
+            }
+        });
         oneButton.setOnClickListener(v -> inputNumber(oneButton));
         twoButton.setOnClickListener(v -> inputNumber(twoButton));
         threeButton.setOnClickListener(v -> inputNumber(threeButton));
