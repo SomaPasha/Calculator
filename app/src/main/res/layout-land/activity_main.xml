@@ -85,6 +85,15 @@
             android:insetBottom="0dp"
             android:text="*"/>
         <Button
+            android:id="@+id/plus_button"
+            android:layout_width="@dimen/button_size_land"
+            android:layout_height="@dimen/button_size_land"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="+"/>
+        <Button
             android:id="@+id/equals_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -93,17 +102,6 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="="/>
-        <Button
-            android:id="@+id/plus_button"
-            android:layout_width="@dimen/button_size_land"
-            android:layout_height="@dimen/button_size_land"
-            android:layout_rowSpan="2"
-            android:layout_gravity="fill"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="+"/>
         <Button
             android:id="@+id/one_button"
             android:layout_width="@dimen/button_size_land"
@@ -159,6 +157,28 @@
             android:insetBottom="0dp"
             android:text="6"/>
         <Button
+            android:id="@+id/right_bracket_button"
+            android:layout_width="@dimen/button_size_land"
+            android:layout_height="@dimen/button_size_land"
+            android:layout_rowSpan="2"
+            android:layout_gravity="fill"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text=")"/>
+        <Button
+            android:id="@+id/left_bracket_button"
+            android:layout_width="@dimen/button_size_land"
+            android:layout_height="@dimen/button_size_land"
+            android:layout_rowSpan="2"
+            android:layout_gravity="fill"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/computing_signs_color"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="("/>
+        <Button
             android:id="@+id/seven_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -167,17 +187,6 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="7"/>
-        <Button
-            android:id="@+id/left_bracket_button"
-            android:layout_width="@dimen/button_size_land"
-            android:layout_height="@dimen/button_size_land"
-            android:layout_columnSpan="2"
-            android:layout_gravity="fill"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="("/>
         <Button
             android:id="@+id/eight_button"
             android:layout_width="@dimen/button_size_land"
@@ -200,25 +209,13 @@
             android:id="@+id/zero_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
-            android:layout_columnSpan="2"
+            android:layout_columnSpan="3"
             android:layout_gravity="fill"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="0"/>
-        <Button
-            android:id="@+id/right_bracket_button"
-            android:layout_width="@dimen/button_size_land"
-            android:layout_height="@dimen/button_size_land"
-            android:layout_columnSpan="2"
-            android:layout_gravity="fill"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text=")"/>
-
     </GridLayout>
 
 

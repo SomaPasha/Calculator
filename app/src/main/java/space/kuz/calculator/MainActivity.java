@@ -1,7 +1,6 @@
 package space.kuz.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.res.Configuration;
 import android.media.VolumeShaper;
 import android.os.Bundle;
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String LEFTSIGN = "(";
     private static final String RIGHTSING = ")";
     private static final String EMPTY = "";
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
