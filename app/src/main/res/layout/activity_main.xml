@@ -24,7 +24,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/basic_edit_text"
             android:layout_columnSpan="4"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/button_margin"
             android:layout_gravity="fill"
             android:background="@color/number_color"
             android:scrollbars="vertical"
@@ -35,9 +35,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/special_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="АС"
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_ac"
             android:visibility="visible" />
 
         <com.google.android.material.button.MaterialButton
@@ -46,9 +46,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="←"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_arrow"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/point_button"
@@ -56,9 +56,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="."/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_point"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/div_button"
@@ -66,9 +66,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="÷"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_div"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/one_button"
@@ -76,9 +76,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="1"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_1"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/two_button"
@@ -86,9 +86,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="2"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_2"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/three_button"
@@ -96,9 +96,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="3"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_3"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/multiply_button"
@@ -106,9 +106,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="*"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_multiply"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/four_button"
@@ -116,9 +116,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="4"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_4"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/five_button"
@@ -126,9 +126,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="5"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_5"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/six_button"
@@ -136,9 +136,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="6"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_6"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/minus_button"
@@ -146,9 +146,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="-"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_minus"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/seven_button"
@@ -156,9 +156,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="7"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_7"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/eight_button"
@@ -166,9 +166,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="8"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_8"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/nine_button"
@@ -176,9 +176,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="9"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_9"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/plus_button"
@@ -188,9 +188,9 @@
             android:layout_gravity="fill"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="+"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_plus"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/zero_button"
@@ -200,9 +200,9 @@
             android:layout_gravity="fill"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/number_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="0"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_0"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/equals_button"
@@ -210,9 +210,9 @@
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/special_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="="/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_equals"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/left_bracket_button"
@@ -222,9 +222,9 @@
             android:layout_gravity="fill"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="("/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_left_bracket"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/right_bracket_button"
@@ -234,9 +234,9 @@
             android:layout_gravity="fill"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/computing_signs_color"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text=")"/>
+            android:insetTop="@dimen/inset_zero"
+            android:insetBottom="@dimen/inset_zero"
+            android:text="@string/button_right_bracket"/>
 
     </GridLayout>
 
