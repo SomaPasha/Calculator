@@ -140,7 +140,9 @@ public class MainActivity extends AppCompatActivity {
         rightBracketButton.setOnClickListener(v -> {
             if (basicEditText.length() == 0) {
                 inputNumber(rightBracketButton);
-            } else if (!basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(POINT)) {
+            } else if (
+                    !isNumber(basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length())) &&
+                            !basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length()).equals(POINT)) {
                 inputNumber(rightBracketButton);
             }
             checkPoint = true;

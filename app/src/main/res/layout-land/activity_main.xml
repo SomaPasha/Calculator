@@ -29,7 +29,7 @@
             android:background="@color/number_color"
             android:scrollbars="vertical"
             />
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/null_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -39,7 +39,7 @@
             android:insetBottom="0dp"
             android:text="АС"
             android:visibility="visible" />
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/delete_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -48,7 +48,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="←"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/point_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -57,7 +57,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="."/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/minus_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -66,7 +66,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="-"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/div_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -75,7 +75,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="÷"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/multiply_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -84,7 +84,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="*"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/plus_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -93,7 +93,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="+"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/equals_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -102,7 +102,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="="/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/one_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -111,7 +111,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="1"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/two_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -120,7 +120,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="2"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/three_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -129,7 +129,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="3"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/four_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -138,7 +138,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="4"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/five_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -147,7 +147,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="5"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/six_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -156,7 +156,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="6"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/right_bracket_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -167,7 +167,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text=")"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/left_bracket_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -178,7 +178,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="("/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/seven_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -187,7 +187,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="7"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/eight_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -196,7 +196,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="8"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/nine_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
@@ -205,7 +205,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="9"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/zero_button"
             android:layout_width="@dimen/button_size_land"
             android:layout_height="@dimen/button_size_land"
