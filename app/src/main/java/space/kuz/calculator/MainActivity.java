@@ -1,6 +1,7 @@
 package space.kuz.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.res.Configuration;
 import android.media.VolumeShaper;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     CalculatingEquality calculatingEquality;
     public static final String POINT = ".";
 
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +30,12 @@ public class MainActivity extends AppCompatActivity {
         calculatingEquality = new CalculatingEquality();
         initButtonOnClickListener();
     }
+
     // Иницилизация всех кнопок и обработка их
     private void initButtonOnClickListener() {
-        basicEditText = (EditText)findViewById(R.id.basic_edit_text);
+        basicEditText = (EditText) findViewById(R.id.basic_edit_text);
         basicEditText.setText(EMPTY);
-        basicEditText.setMovementMethod( new ScrollingMovementMethod());
+        basicEditText.setMovementMethod(new ScrollingMovementMethod());
         Button nullButton = findViewById(R.id.null_button);
         Button deleteButton = findViewById(R.id.delete_button);
         Button pointButton = findViewById(R.id.point_button);
@@ -113,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         equalsButton.setOnClickListener(v -> {
-           calculatingEquality.convertFormula(basicEditText);
+            calculatingEquality.convertFormula(basicEditText);
             try {
                 calculatingEquality.calculateFormulaHard(basicEditText);
-           } catch (Exception e) {
+            } catch (Exception e) {
                 Toast.makeText(this, "ОШИБКА!!! Введите заново", Toast.LENGTH_LONG).show();
             }
             checkPoint = true;
@@ -125,9 +127,7 @@ public class MainActivity extends AppCompatActivity {
         leftBracketButton.setOnClickListener(v -> {
             if (basicEditText.length() == 0) {
                 inputNumber(leftBracketButton);
-            } else if (
-                    isNumber(isolationChar()) &&
-                            !isolationChar().equals(POINT)) {
+            } else if (isNumber(isolationChar()) && !isolationChar().equals(POINT)) {
                 inputNumber(leftBracketButton);
             }
             checkPoint = true;
@@ -135,9 +135,7 @@ public class MainActivity extends AppCompatActivity {
         rightBracketButton.setOnClickListener(v -> {
             if (basicEditText.length() == 0) {
                 inputNumber(rightBracketButton);
-            } else if (
-                    isNumber(isolationChar()) &&
-                            !isolationChar().equals(POINT)) {
+            } else if (isNumber(isolationChar()) && !isolationChar().equals(POINT)) {
                 inputNumber(rightBracketButton);
             }
             checkPoint = true;
@@ -155,14 +153,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
     // Метод ввода значения в Edit
     private void inputNumber(Button button) {
         basicEditText.setText(basicEditText.getText().toString() + button.getText());
     }
+
     // Метод проверки находиться рядом + - / * .
     private boolean checkSing() {
-        return !isolationChar().equals(CalculatingEquality.PLUS) && !isolationChar().equals(CalculatingEquality.MINUS) && !isolationChar().equals(CalculatingEquality.MULTIPLY) && !isolationChar().equals(CalculatingEquality.DIV) && !isolationChar().equals(POINT);
+        return !isolationChar().equals(CalculatingEquality.PLUS) &&
+                !isolationChar().equals(CalculatingEquality.MINUS) &&
+                !isolationChar().equals(CalculatingEquality.MULTIPLY) &&
+                !isolationChar().equals(CalculatingEquality.DIV) &&
+                !isolationChar().equals(POINT);
     }
+
     // Проверка является строка числом
     private static boolean isNumber(String string) {
         try {
@@ -173,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private String isolationChar(){
+    private String isolationChar() {
         return basicEditText.getText().toString().substring(basicEditText.getText().length() - 1, basicEditText.getText().length());
     }
 

@@ -1,6 +1,4 @@
 package space.kuz.calculator;
-
-import android.text.method.ScrollingMovementMethod;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -26,11 +24,13 @@ public class CalculatingEquality {
         while (formulaText.length() != 0) {
             oneChar = formulaText.substring(0, 1);
             formulaText.delete(0, 1);
-            if (oneChar.equals(PLUS) || oneChar.equals(MINUS) || oneChar.equals(MULTIPLY) || oneChar.equals(DIV) || oneChar.equals(LEFTSIGN) || oneChar.equals(RIGHTSING)) {
+            if (oneChar.equals(PLUS) || oneChar.equals(MINUS) ||
+               oneChar.equals(MULTIPLY) || oneChar.equals(DIV) ||
+               oneChar.equals(LEFTSIGN) || oneChar.equals(RIGHTSING)) {
                 checkNumber = true;
                 if (checkNumber && !Number.equals(EMPTY)) {
                     textSing.add(Number);
-                    checkNumber = false;
+                    checkNumber = false;// TODO доработать
                     Number = EMPTY;
                 }
                 textSing.add(oneChar);
@@ -47,7 +47,7 @@ public class CalculatingEquality {
     // Метод вычесления сложных формул со скобками
     public void calculateFormulaHard(EditText basicEditText ) {
         while (textSing.size() != 1) {
-            if (textSing.indexOf(RIGHTSING) == -1 && textSing.indexOf(LEFTSIGN) == -1) {
+            if (!textSing.contains(RIGHTSING) && !textSing.contains(LEFTSIGN)) {
                 calculateFormulaSimple(textSing);
             } else {
 
@@ -85,16 +85,16 @@ public class CalculatingEquality {
         while (indexCalculate != -1 && subTextSing.size() > 1) {
             switch (sing) {
                 case (MULTIPLY):
-                    result = Float.valueOf(subTextSing.get(indexCalculate - 1)) * Float.valueOf(subTextSing.get(indexCalculate + 1));
+                    result = Float.parseFloat(subTextSing.get(indexCalculate - 1)) * Float.parseFloat(subTextSing.get(indexCalculate + 1));
                     break;
                 case (DIV):
-                    result = Float.valueOf(subTextSing.get(indexCalculate - 1)) / Float.valueOf(subTextSing.get(indexCalculate + 1));
+                    result = Float.parseFloat(subTextSing.get(indexCalculate - 1)) / Float.parseFloat(subTextSing.get(indexCalculate + 1));
                     break;
                 case (MINUS):
-                    result = Float.valueOf(subTextSing.get(indexCalculate - 1)) - Float.valueOf(subTextSing.get(indexCalculate + 1));
+                    result = Float.parseFloat(subTextSing.get(indexCalculate - 1)) - Float.parseFloat(subTextSing.get(indexCalculate + 1));
                     break;
                 case (PLUS):
-                    result = Float.valueOf(subTextSing.get(indexCalculate - 1)) + Float.valueOf(subTextSing.get(indexCalculate + 1));
+                    result = Float.parseFloat(subTextSing.get(indexCalculate - 1)) + Float.parseFloat(subTextSing.get(indexCalculate + 1));
                     break;
             }
             subTextSing.set(indexCalculate, result + EMPTY);
@@ -115,7 +115,7 @@ public class CalculatingEquality {
     // Проверка наличия первого минуса в строке
     private void checkFirstMinus(ArrayList<String> subTextSing) {
         if (subTextSing.get(0).equals(MINUS)) {
-            subTextSing.set(1, String.valueOf(Float.valueOf(subTextSing.get(1)) * -1));
+            subTextSing.set(1, String.valueOf(Float.parseFloat(subTextSing.get(1)) * -1));
             subTextSing.remove(0);
         }
     }
