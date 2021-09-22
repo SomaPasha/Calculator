@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     tools:context=".SettingActivity">
-
     <Switch
         android:id="@+id/setting_switch"
         android:text="@string/theme_text_view_1"
