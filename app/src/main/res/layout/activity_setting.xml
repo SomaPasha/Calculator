@@ -8,7 +8,7 @@
     tools:context=".SettingActivity">
     <Switch
         android:id="@+id/setting_switch"
-        android:text="@string/theme_text_view_2"
+        android:text="@string/theme_text_view_1"
         android:textSize="@dimen/basic_edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
