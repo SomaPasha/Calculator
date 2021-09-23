@@ -36,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        saveTheme();
+        calculatingEquality = new CalculatingEquality();
+        initButtonOnClickListener();
+
+    }
+
+    private void saveTheme() {
         SharedPreferences sharedPreferences = this.getSharedPreferences("DATA", Context.MODE_PRIVATE);
         boolean  strength = sharedPreferences.getBoolean("SWITCH_SETTING",false);
         if(strength){
@@ -43,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-        calculatingEquality = new CalculatingEquality();
-        initButtonOnClickListener();
-
     }
 
     @Override

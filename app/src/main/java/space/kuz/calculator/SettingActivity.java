@@ -16,17 +16,22 @@ public class SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         switchSetting = (Switch) findViewById(R.id.setting_switch);
+        changeTheme();
+
+    }
+
+    private void changeTheme() {
         SharedPreferences sharedPreferences = this.getSharedPreferences("DATA",Context.MODE_PRIVATE);
         boolean  strength = sharedPreferences.getBoolean("SWITCH_SETTING",false);
         switchSetting.setChecked(strength);
         switchSetting.setOnClickListener(v ->  {
-                boolean checked = ((Switch) v).isChecked();
-                if (checked) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                }
-                else{
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }
+            boolean checked = ((Switch) v).isChecked();
+            if (checked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+            else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
         });
     }
 
