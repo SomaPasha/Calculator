@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.zip.Inflater;
 
 import static space.kuz.calculator.CalculatingEquality.EMPTY;
+import static space.kuz.calculator.Сonstant.DATA;
+import static space.kuz.calculator.Сonstant.SWITCH_SETTING;
 
 public class MainActivity extends AppCompatActivity {
     private EditText basicEditText;
@@ -36,16 +38,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences sharedPreferences = this.getSharedPreferences("DATA", Context.MODE_PRIVATE);
-        boolean  strength = sharedPreferences.getBoolean("SWITCH_SETTING",false);
+        saveTheme();
+        calculatingEquality = new CalculatingEquality();
+        initButtonOnClickListener();
+
+    }
+
+    private void saveTheme() {
+        SharedPreferences sharedPreferences = this.getSharedPreferences(DATA, Context.MODE_PRIVATE);
+        boolean  strength = sharedPreferences.getBoolean(SWITCH_SETTING,false);
         if(strength){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-        calculatingEquality = new CalculatingEquality();
-        initButtonOnClickListener();
-
     }
 
     @Override

@@ -9,26 +9,34 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Switch;
 
+import static space.kuz.calculator.Сonstant.DATA;
+import static space.kuz.calculator.Сonstant.SWITCH_SETTING;
+
 public class SettingActivity extends AppCompatActivity {
-    Switch switchSetting;
+    private Switch switchSetting;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        changeTheme();
+    }
+
+    private void changeTheme() {
         switchSetting = (Switch) findViewById(R.id.setting_switch);
-        SharedPreferences sharedPreferences = this.getSharedPreferences("DATA",Context.MODE_PRIVATE);
-        boolean  strength = sharedPreferences.getBoolean("SWITCH_SETTING",false);
+        SharedPreferences sharedPreferences = this.getSharedPreferences(DATA,Context.MODE_PRIVATE);
+        boolean  strength = sharedPreferences.getBoolean(SWITCH_SETTING,false);
         switchSetting.setChecked(strength);
         switchSetting.setOnClickListener(v ->  {
-                boolean checked = ((Switch) v).isChecked();
-                if (checked) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                }
-                else{
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }
+            boolean checked = ((Switch) v).isChecked();
+            if (checked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+            else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
         });
     }
+
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
