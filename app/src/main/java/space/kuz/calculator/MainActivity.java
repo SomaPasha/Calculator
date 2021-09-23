@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         saveTheme();
         calculatingEquality = new CalculatingEquality();
         initButtonOnClickListener();
-
     }
 
     private void saveTheme() {
