@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" >Calculator</string>
+    <string name="app_name">Calculator</string>
     <string name="button_ac" translatable="false">АС</string>
     <string name="button_arrow" translatable="false">←</string>
     <string name="button_point" translatable="false">.</string>
@@ -20,4 +20,8 @@
     <string name="button_equals" translatable="false">=</string>
     <string name="button_left_bracket" translatable="false">(</string>
     <string name="button_right_bracket" translatable="false">)</string>
+    <string name="theme_text_view_1">Light theme</string>
+    <string name="theme_text_view_2">Dark theme</string>
+    <string name="main_setting">Setting</string>
+
 </resources>
